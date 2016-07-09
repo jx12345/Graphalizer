@@ -12,7 +12,7 @@ $accessToken = $_SESSION['facebook_access_token'];
 
 $fb->setDefaultAccessToken($accessToken);
 try {
-  $response = $fb->get('/me');
+  $response = $fb->get('/me/photos');
   $userNode = $response->getGraphUser();
   $graphNode = $response->getGraphNode();
 
