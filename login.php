@@ -9,6 +9,6 @@ $fb = new Facebook\Facebook([
 
 $helper = $fb->getRedirectLoginHelper();
 $permissions = ['email', 'user_likes']; // optional
-$loginUrl = $helper->getLoginUrl('http://jmware.co.uk/login-callback.php', $permissions);
+$loginUrl = $helper->getLoginUrl('http://jmware.co.uk/fb/login-callback.php', $permissions);
 
 echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
