@@ -12,6 +12,8 @@ $fb = new Facebook\Facebook([
 $helper = $fb->getRedirectLoginHelper();
 try {
   $accessToken = $helper->getAccessToken();
+  print_r($accessToken);
+
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   // When Graph returns an error
   echo 'Graph returned an error: ' . $e->getMessage();
