@@ -27,6 +27,7 @@ if (isset($accessToken)) {
   $_SESSION['facebook_access_token'] = (string) $accessToken;
   // Now you can redirect to another page and use the
   // access token from $_SESSION['facebook_access_token']
+  header('Location: app.php');
 
   $fb->setDefaultAccessToken($accessToken);
   try {
@@ -40,4 +41,7 @@ if (isset($accessToken)) {
   }
 
   echo 'Logged in as ' . $userNode->getName();
+  echo '<pre>';
+  print_r($userNode);
+  
 }
