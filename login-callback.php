@@ -1,8 +1,8 @@
 <?php
 
-echo "<pre>callback\n";
 session_start();
 require_once __DIR__ . '/vendor/autoload.php';
+
 $fb = new Facebook\Facebook([
     'app_id' => '1763077917273267',
     'app_secret' => '02ded92ceb16f6e7b5281cd41b2bb2f3',
@@ -12,8 +12,6 @@ $fb = new Facebook\Facebook([
 $helper = $fb->getRedirectLoginHelper();
 try {
   $accessToken = $helper->getAccessToken();
-  print_r($accessToken);
-
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   // When Graph returns an error
   echo 'Graph returned an error: ' . $e->getMessage();
@@ -27,7 +25,6 @@ try {
 if (isset($accessToken)) {
   // Logged in!
   $_SESSION['facebook_access_token'] = (string) $accessToken;
-  print_r($_SESSION);
   // Now you can redirect to another page and use the
   // access token from $_SESSION['facebook_access_token']
 
@@ -43,5 +40,4 @@ if (isset($accessToken)) {
   }
 
   echo 'Logged in as ' . $userNode->getName();
-
 }
